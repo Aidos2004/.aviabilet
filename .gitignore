@@ -1,32 +1,391 @@
-# Prerequisites
-*.d
+#include<iostream>
+#include<fstream>
+#include<iomanip>
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+using namespace std;
+ 
+void mainMenu();
 
-# Precompiled Headers
-*.gch
-*.pch
+class Management
+{
+	public:
+		
+		Management()
+		{
+		     mainMenu();	
+		}
+};
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
+class Details
+{
+   public:
+   
+        static string name,gen;	
+		int age;
+		string add;
+		static int cId;
+		char arr[100];
+		
+		void information()
+		{
+			cout<<"\n Satyp alushy ID:";
+			cin>>cId;
+			cout<<"\nAtynyzdy teriniz:";
+			cin>>name;
+			cout<<"\nZhasynyzdy teriniz:";
+			cin>>age;
+			cout<<"\n @mail Address:";
+			cin>>add;
+			cout<<"\n Gen:";
+			cin>>gen;
+			cout<<"Sizdin derekteriniz bizde saqtalady\n"<<endl;
+			
+		}
+};
 
-# Fortran module files
-*.mod
-*.smod
+int Details::cId;
+string Details::name;
+string Details::gen;
 
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+class registration
+{
+	public:
+		static int choice;
+		int choice1;
+		int back;
+		static float charges;
+		
+		void flights()
+		
+		{
+		    string flightN[]={"Astana","Almaty","Shymkent"};
+		    
+		    for( int a=0;a<3;a++)
+		    {
+		    	cout<<(a+1)<<".ushu"<<flightN[a]<<endl;
+			}
+			cout<<"\n Airlines Qosh keldiniz!"<<endl;
+			cout<<"Reiske tapsyrys berginiz keletin qala nomerin basynyz:";
+			cin>>choice;
+			
+			switch (choice)
+			{
+				case 1:
+					{
+						cout<<"_____________Welcome to Astana Airlines___________\n"<<endl;
+						cout<<"Sizdin jailylygynyz - bizdin basymdygymyz, saiahattan lazzat alynyz!"<<endl;
+						cout<<"Tomende reister berilgen \n"<<endl;
+						
+						cout<<"1.Ast-110"<<endl;
+						cout<<"\t20-04-2023 8:00AM 10hrs Rs. 14000"<<endl;
+						cout<<"2.Ast-210"<<endl;
+						cout<<"\t21-04-2023 4:00AM 9hrs Rs. 15000"<<endl;
+						cout<<"3.Ast-310"<<endl;
+						cout<<"\t22-04-2023 10:00AM 11hrs Rs. 13000"<<endl;
+						
+						cout<<"\nBrondagynyz keletin reisti tandanyz:";
+						cin>>choice1;
+						
+						if(choice==1)
+						{
+							charges=14000;
+							cout<<"\nSiz reiske satti tapsyrys berdiniz Ast-110"<<endl;
+							cout<<"Siz mazirge oralyp biletti ala alasyz"<<endl;
+						}
+						
+						else if(choice==2)
+						{
+							charges=15000;
+							cout<<"\nSiz reiske satti tapsyrys berdiniz Ast-210"<<endl;
+							cout<<"Siz mazirge oralyp biletti ala alasyz"<<endl;
+						} 
+						else if(choice==3)
+						{
+							charges=13000;
+							cout<<"\nSiz reiske satti tapsyrys berdinizAst-310"<<endl;
+							cout<<"Siz mazirge oralyp biletti ala alasyz"<<endl;
+						}
+						else 
+						{
+							cout<<"Qate engizy, aldyngy mazirge oty"<<endl;
+							flights();
+						}
+						cout<<"Negizgi mazirge oralu ushin kez kelgen sandy basynyz:"<<endl;
+						cin>>back;
+						
+						if(back==1)
+					    {
+					     	mainMenu();
+					     	
+						}
+						else
+						{
+							mainMenu();
+						}
+						
+					}
+					case 2:
+						{
+						cout<<"_____________Welcome to Almaty Airlines___________\n"<<endl;
+						cout<<"Sizdin jailylygynyz - bizdin basymdygymyz, saiahattan lazzat alynyz!"<<endl;
+						cout<<"Tomende reister berilgen \n"<<endl;
+						
+						cout<<"1.Alm-120"<<endl;
+						cout<<"\t16-04-2023 6:00AM 6hrs Rs. 10000"<<endl;
+						cout<<"2.Alm-220"<<endl;
+						cout<<"\t16-04-2023 18:00AM 4hrs Rs. 11000"<<endl;
+						cout<<"3.Alm-320"<<endl;
+						cout<<"\t17-04-2023 11:00AM 5hrs Rs. 10500"<<endl;
+						
+						cout<<"\nBrondagynyz keletin reisti tandanyz:";
+						cin>>choice1;
+						
+						if(choice==1)
+						{
+							charges=10000;
+							cout<<"\nSiz reiske satti tapsyrys berdiniz Alm-120"<<endl;
+							cout<<"Siz mazirge oralyp biletti ala alasyz"<<endl;
+						}
+						
+						else if(choice==2)
+						{
+							charges=11000;
+							cout<<"\nSiz reiske satti tapsyrys berdiniz Alm-220"<<endl;
+							cout<<"Siz mazirge oralyp biletti ala alasyz"<<endl;
+						} 
+						else if(choice==3)
+						{
+							charges=10500;
+							cout<<"\nSiz reiske satti tapsyrys berdiniz Alm-320"<<endl;
+							cout<<"Siz mazirge oralyp biletti ala alasyz"<<endl;
+						}
+						else 
+						{
+							cout<<"Qate engizy, aldyngy mazirge oty"<<endl;
+							flights();
+						}
+						cout<<"Negizgi mazirge oralu ushin kez kelgen sandy basynyz:"<<endl;
+						cin>>back;
+						
+						if(back==1)
+					    {
+					     	mainMenu();
+					     	
+						}
+						else
+						{
+							mainMenu();
+						}	
+					}
+					
+					case 3:
+						{
+							cout<<"_____________Welcome to Shymkent Airlines___________\n"<<endl;
+						cout<<"Sizdin jailylygynyz - bizdin basymdygymyz, saiahattan lazzat alynyz!"<<endl;
+						cout<<"Tomende reister berilgen\n"<<endl;
+						
+						cout<<"1.SHYM-130"<<endl;
+						cout<<"\t11-04-2023 5:00AM 6hrs Rs. 13000"<<endl;
+						
+						
+						cout<<"\nBrondagynyz keletin reisti tandanyz:";
+						cin>>choice1;
+						
+						if(choice==1)
+						{
+							charges=13000;
+							cout<<"\nSiz reiske satti tapsyrys berdiniz SHYM-130"<<endl;
+							cout<<"Siz mazirge oralyp biletti ala alasyz"<<endl;
+						}
+						
+						
+						else 
+						{
+							cout<<"Qate engizy, aldyngy mazirge oty"<<endl;
+							flights();
+						}
+						cout<<"Negizgi mazirge oralu ushin kez kelgen sandy basynyz:"<<endl;
+						cin>>back;
+						
+						if(back==1)
+					    {
+					     	mainMenu();
+					     	
+						}
+						else
+						{
+							mainMenu();
+						}
+				}
+				default :
+					{
+						cout<<"Sizdi negizgi mazirge aparatyn qate engizu!"<<endl;
+						mainMenu();
+						break;
+					}
+               	}
+		}
+};
+float registration::charges;
+int registration::choice;
 
-# Executables
-*.exe
-*.out
-*.app
+class ticket : public registration, Details
+{
+	public:
+		
+		void Bill()
+		{
+			string Baratyn_jeri="";
+			ofstream outf("Bilet.txt");
+			{
+				outf<<"_______XYZ Airlines__________"<<endl;
+				outf<<"________Bilet_______________"<<endl;
+				outf<<"_____________________________"<<endl;
+				
+				outf<<"Satyp alushy ID:"<<Details::cId<<endl;
+				outf<<"Satyp alushy Aty:"<<Details::name<<endl;
+				outf<<"Satyp alushy Gen:"<<Details::gen<<endl;
+				outf<<"\0" <<endl<<endl;
+				
+				if(registration::choice==1)
+				{
+					Baratyn_jeri="Astana";
+				}
+			    else if(registration::choice==2)
+				{
+					Baratyn_jeri="ALmaty";
+				}
+				else if(registration::choice==3)
+				{
+					Baratyn_jeri="Shymkent";
+				}
+				outf<<"Baratyn jeri\t\t"<<Baratyn_jeri<<endl;
+				outf<<"Ushu quny :\t\t"<<registration::charges<<endl;
+			}
+			outf.close();
+		}
+		void dispBill()
+		{
+			ifstream ifs("Bilet.txt");
+			{
+				if(!ifs)
+				{
+					cout<<"File error!"<<endl;
+				}
+				while(!ifs.eof())
+				{
+					ifs.getline(arr,100);
+					cout<<arr<<endl;
+				}
+			}
+			ifs.close();
+		}
+};
+
+
+void mainMenu()
+{
+	int lchoice;
+	int schoice;
+	int back;
+	
+	cout<<"\t                  XYZ Airlines \n"<<endl;
+	cout<<"\t________________negizgi mazir______________"<<endl;
+	
+	cout<<"\t________________________________________________________________"<<endl;
+	cout<<"\t|\t\t\t\t\t\t\t\t|"<<endl;
+	
+	cout<<"\t|\tKlient derekterin qosu ushin 1 tuimesin basynyz       \t|"<<endl;
+	cout<<"\t|\tReiske tirkelu ushin 2 tuimesin basynyz               \t|"<<endl;
+	cout<<"\t|\tBilet pen tolemdi alu ushin 3 tuimesin basynyz        \t|"<<endl;
+	cout<<"\t|\tShygu ushin 4 tuimesin basynyz                        \t|"<<endl;
+	cout<<"\t|\t\t\t\t\t\t\t\t|"<<endl;
+	cout<<"\t________________________________________________________________"<<endl;
+	
+	cout<<"Tandalgan opsiany engiziniz: ";
+	cin>>lchoice;
+	
+	Details d;
+	registration r;
+	ticket t;
+	
+	switch(lchoice)
+	{
+		
+		case 1:
+			{
+			   cout<<"________________Klientter______________\n"<<endl;
+			    d.information();
+				cout<<"Negizgi mazirge oralu ushin kez kelgen sandy basynyz ";
+				cin>>back;
+				
+				if(back==1)
+				{
+					mainMenu();
+				   }
+				   else
+				   {
+				   	mainMenu();
+				   }	 
+				   break;	 
+			}
+			
+			case 2:
+				{
+					cout<<"_______Osy juie arqyly reiske tapsyrys beriniz___________\n"<<endl;
+					r.flights();
+					break;
+				}
+				
+				case 3:
+					{
+					
+				cout<<"_____BILETTI ALYNYZ___\n"<<endl;
+				t.Bill();
+				
+				cout<<"Sizdin biletiniz basyp shygaryldy, siz ony ala alasyz \n"<<endl;
+				cout<<"Biletti korsetu ushin 1 tuimesin basynyz";
+				
+				cin>>back;
+				
+				    if(back==1)
+				    {
+				    	t.dispBill();
+				    	cout<<"Negizgi mazirge oralu ushin kez kelgen sandy basynyz:";
+				    	cin>>back;
+				    	if(back==1)
+				    	{
+				    		mainMenu();
+						}
+						else
+						{
+							mainMenu();
+						}
+						
+					}
+					else
+					{
+						mainMenu();
+					}
+					break;
+				}
+			case 4:
+				{
+					cout<<"\n\n\t________Sizge rahmet_______"<<endl;
+					break;
+				}
+				
+				default :
+					{
+						cout<<"Qate engizu, qaitalap koriniz!\n"<<endl;
+						mainMenu();
+						break;
+					}		
+	}	
+}
+
+int main()
+{
+	Management Mobj;
+	return 0;
+}
